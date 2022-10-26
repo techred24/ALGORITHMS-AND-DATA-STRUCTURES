@@ -41,6 +41,20 @@ class DoubleLinkList {
         this.tail.next = null;
         nodeC.next = this.tail;
     }
+    remove(removePosition) {
+        let p = this.head;
+        let i = 0;
+
+        while(p.next!=null && i < removePosition - 1) {
+            p = p.next;
+            i++;
+        }
+        let temp = p.next;
+        p.next = p.next.next;
+        p.next.prev = p;
+        temp.next = null;
+        temp.prev = null;
+    }
     insert(insertPosition, newNode) {
         let p = this.head;
         let i = 0;
@@ -87,6 +101,7 @@ let doubleLinkList = new DoubleLinkList();
 doubleLinkList.init();
 // doubleLinkList.add(new Node('E'));
 doubleLinkList.insert(2, new Node('E'));
+doubleLinkList.remove(2);
 print(doubleLinkList.getHead());
 
 
