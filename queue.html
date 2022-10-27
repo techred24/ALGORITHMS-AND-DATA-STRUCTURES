@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue</title>
+</head>
+<body>
+    <script>
+        class Node {
+            constructor(data, prev, next) {
+                this.data = data;
+                this.prev = prev;
+                this.next = next;
+            }
+            getData() {
+                return this.data;
+            }
+        }
+        
+        class Queue {
+            constructor() {
+                this.head = null;
+                this.tail = null;
+                this.size = 0;
+            }
+            offer(element) {
+                if (this.head === null) {
+                    this.head = new Node(element);
+                    this.tail = this.head;
+                } else {
+                    let newNode = new Node(element);
+                    newNode.next = this.tail;
+                    this.tail.prev = newNode;
+                    this.tail = newNode;
+                }
+                this.size++;
+            }
+            poll() {
+                let p = this.head;
+                if (p === null) {
+                    return null;
+                }
+                if (!this.head.prev) return null
+                this.head = this.head.prev;
+                p.next = null;
+                p.prev = null;
+                this.size--;
+                return p;
+            }
+            size() {
+                return this.size;
+            }
+        }
+
+        function print(queue) {
+            document.write('Head ');
+            let node = null;
+            while((node = queue.poll()) != null) {
+                document.write(node.getData() + ' <- ');
+            }
+            document.write('Tail <br>');
+        }
+        let queue = new Queue();
+        queue.offer('A');
+        queue.offer('B');
+        queue.offer('C');
+        queue.offer('D');
+        
+        print(queue);
+    </script>
+</body>
+</html>

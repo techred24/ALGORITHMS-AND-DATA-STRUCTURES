@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Sort</title>
+</head>
+<body>
+    <script>
+        class SelectSort {
+            static sort(arrays) {
+                let len = arrays.length - 1;
+                let minIndex;
+
+                for( let i = 0; i < len; i++) {
+                    minIndex = i;
+                    let minValue = arrays[minIndex];
+                    for(let j = i; j < len; j++) {
+                        if (minValue > arrays[j + 1]) {
+                            minValue = arrays[j + 1];
+                            minIndex = j + 1;
+                        }
+                    }
+                    if (i != minIndex) {
+                        let temp = arrays[i];
+                        arrays[i] = arrays[minIndex];
+                        arrays[minIndex] = temp;
+                    }
+                }
+            }
+        }
+
+        let scores = [90, 70, 50, 80, 60, 85];
+        SelectSort.sort(scores);
+        for (let i = 0; i < scores.length; i++) {
+            document.write(scores[i] + ', ');
+        }
+    </script>
+</body>
+</html>

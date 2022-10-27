@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+<body>
+    <script>
+        function sort(arrays) {
+            for(let i = 0; i < arrays.length - 1; i++) {
+                let isSwap = false;
+                for (let j = 0; j < arrays.length - i - 1; j++) {
+                    if (arrays[j] > arrays[j + 1]) {
+                        let flag = arrays[j];
+                        arrays[j] = arrays[j+ 1];
+                        arrays[j + 1] = flag;
+                        isSwap = true;
+                    }
+                }
+                if (!isSwap) {
+                    break;
+                }
+            }
+        }
+        let scores = [90, 70, 50, 80, 60, 85];
+        sort(scores);
+        for (let i = 0; i < scores.length; i++) {
+            document.write(scores[i] + ', ');
+        }
+    </script>
+</body>
+</html>

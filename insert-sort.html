@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Sort</title>
+</head>
+<body>
+    <script>
+        class InsertSort {
+            static sort(arrays) {
+                for (let i = 0; i < arrays.length; i++) {
+                    let insertElement = arrays[i];
+                    let insertPosition = i;
+
+                    for (let j = insertPosition - 1; j >= 0; j--) {
+                        if (insertElement < arrays[j]) {
+                            arrays[j + 1] = arrays[j];
+                            insertPosition--;
+                        }
+                    }
+                    arrays[insertPosition] = insertElement;
+                }
+            }
+        }
+
+        let scores = [90, 70, 50, 80, 60, 85];
+        InsertSort.sort(scores);
+        for (let i = 0; i < scores.length; i++) {
+            document.write(scores[i] + ', ');
+        }
+    </script>
+</body>
+</html>

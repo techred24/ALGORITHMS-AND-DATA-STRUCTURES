@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+</head>
+<body>
+    <script>
+        class BinarySearch {
+            static search(arrays, searchValue) {
+                let low = 0;
+                let high = arrays.length - 1;
+                let mid = 0;
+
+                while(low <= high) {
+                    mid = (low + high) / 2;
+                    if (arrays[mid] === searchValue) {
+                        return mid;
+                    } else if(arrays[mid] < searchValue) {
+                        low = mid + 1;
+                    } else if (arrays[mid] > searchValue) {
+                        high = mid - 1;
+                    }
+                }
+                return -1;
+            }
+        }
+
+        let scores = [30, 40, 50, 70, 85, 90, 100];
+
+        let searchValue = 40;
+        let position = BinarySearch.search(scores, searchValue);
+
+        document.write(`${searchValue} position: ${position}`);
+
+        document.write('<br>----------------------------------------<br>');
+
+        searchValue = 90;
+        position = BinarySearch.search(scores, searchValue);
+        document.write(`${searchValue} position: ${position}`);
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Array Search</title>
+</head>
+<body>
+    <script>
+        function search(array, value) {
+            for (let i = 0; i < array.length; i++) {
+                if (array[i] === value) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        let scores = [90, 70, 50, 80, 60, 85];
+        let value = 70;
+        let index = search(scores, value);
+        
+        if (index > 0) {
+            document.write(`Found value: ${value} the index is: ${index}`);
+        } else {
+            document.write(`The value was not found: ${value}`);
+        }
+    </script>
+</body>
+</html>
